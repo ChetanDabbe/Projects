@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        *{
+            background-color:grey;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 4rem;
+            color:brown;
+            letter-spacing: 3px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            height: 400px;
+            border: 4px solid black;
+            /* margin-top: 8%; */
+            /* margin-left: 37%; */
+        }
+
+        .answer {
+            width: 98.5%;
+            height: 4rem;
+            border: 2px solid black;
+            background-color: rgba(255, 255, 255, 0.93);
+            text-align: center;
+        }
+        
+        .button {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 128, 0.263);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+        }
+
+        .btn {
+            width: 60px;
+            height: 2rem;
+            margin-top: 1rem;
+            margin-left: 1rem;
+            background-color: wheat;
+            border: 2px solid black;
+            font-size: 25px;
+            text-align: center;
+            font-weight: bolder;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .answer::placeholder{
+            font-size:35px;
+            text-align: center;
+            color:rgb(85, 77, 77)
+        }
+
+        .bottom{
+            width:100vw;
+            height:1.7rem;
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            position:absolute;
+            bottom:0;
+            left:0;
+            font-weight:bolder;
+            text-align: center;
+            color:white;
+        }
+        .main_container{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="main_container">
+
+    
+    <h1>
+        Welcome to Calculator
+    </h1>
+
+    <div class="container">
+        <input class="answer" type="text" placeholder="00000">
+
+        <div class="button">
+            <div class="btn">*</div>
+            <div class="btn">%</div>
+            <div class="btn">/</div>
+            <div class="btn">AC</div>
+            <div class="btn">7</div>
+            <div class="btn">8</div>
+            <div class="btn">9</div>
+            <div class="btn">Del</div>
+            <div class="btn">4</div>
+            <div class="btn">5</div>
+            <div class="btn">6</div>
+            <div class="btn">+</div>
+            <div class="btn">1</div>
+            <div class="btn">2</div>
+            <div class="btn">3</div>
+            <div class="btn">-</div>
+            <div class="btn">^</div>
+            <div class="btn">0</div>
+            <div class="btn">.</div>
+            <div class="btn">=</div>
+        </div>
+    </div>
+
+    <footer class="bottom">
+        &#64;Created &nbsp;by &nbsp;Chetan INC, Bhusawal 425201.
+    </footer>
+</div>
+    <script>
+        let b="";
+        let a = document.querySelectorAll(".button .btn");
+        Array.from(a).forEach((button) => {
+            button.addEventListener('click', (e) => {
+            if (e.target.innerHTML=='=')
+            {
+                b=eval(b);
+            }
+            else if (e.target.innerHTML=='AC')
+            {
+                b="";
+            }
+            else if (e.target.innerHTML=='Del')
+            {
+                a=(b.length)-1;
+                console.log(a);
+                let c=b.slice(0,a);
+                b=c;
+                if (a==0)
+                {
+                    b="";
+                }
+            }
+            else if (e.target.innerHTML=='%')
+            {
+                b=b/100;
+            }
+            else
+            {                    
+                b = b+ e.target.innerHTML;  
+            }
+            let d=document.querySelector('.answer');
+            d.value=b;
+            d.style.fontSize='30px';
+        });
+    });
+            
+    </script>
+</body>
+</html>

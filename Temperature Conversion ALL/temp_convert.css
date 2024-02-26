@@ -1,0 +1,164 @@
+body{
+    margin:0;
+    padding:0;
+    background-image: url('image1.jpeg');
+    background-size: cover;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+}
+.main_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* This ensures the container takes the full height of the viewport */
+    margin: 0; /* Remove default margin on the body */
+    
+}
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* row-gap: 0.rem; */
+    border:2px solid black;
+    background-color: rgb(245, 245, 245);
+    width:400px;
+    height:400px;
+    box-shadow: 8px 8px 10px rgba(0,0,0,3.5);
+}
+.dropdown1,
+.dropdown2 {
+    display: none;
+}
+
+.dropdown1.active,
+.dropdown2.active {
+    display: block;
+    cursor: pointer;
+}
+.flex1{
+    /* margin-top:10px; */
+    margin-top:-30px;
+    color:brown;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 2px 4px rgba(19, 19, 18, 0.2);
+    font-size:20px;
+}
+.amount{
+    display:flex;
+    flex-direction:column;
+}
+
+.amount h3{
+    text-align: center;
+    margin-bottom:5px;
+}
+
+#input_bar{
+    width:14rem;
+    height:1.8rem;
+
+    padding-left:5px;
+    text-align: center;
+    font-size:medium;
+}
+#input_bar::placeholder{
+    color:black;
+}
+/* .input{
+    background-color: red;
+} */
+.conversion{
+    display:flex;
+    flex-direction:row;
+    gap:40px;
+}
+.from,.To{
+    display:flex;
+    flex-direction: column;
+    row-gap:-20px;
+}
+.from_container{
+    display:flex;
+    flex-direction: row;
+    width: 120px;
+    height:30px;
+    border:2px solid black;
+    margin-top:4px;
+    margin-left:2px;
+    gap:0.75rem;
+    /* gap:rem; */
+}
+
+.to_container{
+    display:flex;
+    flex-direction: row;
+    width:120px;
+    height:30px;
+    border:2px solid black;
+    margin-top:4px;
+    margin-left:2px;
+    gap:0.75rem;
+}
+
+.from_container p, .to_container p{
+    margin-top:5px;
+    margin-left:2px;
+}
+
+.btn1,.btn2{
+    width:25px;
+    background-color: white !important;
+    /* height:10px; */
+    /* background-image: none; */
+    border-left:2px solid black;
+    cursor:pointer;
+}
+.btn1 p,.btn2 p{
+    margin-top:4px;
+    font-size:25px;
+}
+
+.buttons{
+    display:flex;
+    flex-direction:row;
+}
+
+.convert_btn{
+    width:90px;
+    height:2rem;
+    margin-top:25px;
+    background-color:rgba(2, 2, 98, 0.827);
+    border:2px solid black;
+    color:white;
+    cursor:pointer;
+    /* text-align: center; */
+}
+.convert_btn p{
+    margin-top:5px;
+    text-align:center;
+}
+
+.Answer{
+    /* margin-top:10px; */
+    width:200px;
+    height:40px;
+    /* border:2px solid black; */
+    margin-top:10px;
+    color:red;
+
+}
+.Answer p{
+    font-size:20px;
+    text-align:center;
+}
+
+.dropdown1{
+    display:none;
+
+}
+
+.dropdown1.active{
+    display:block;
+    cursor:pointer;
+}

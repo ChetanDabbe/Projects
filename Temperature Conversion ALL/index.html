@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+    <link rel="stylesheet" href="./temp_convert.css">
+    <style>
+        .output{
+            color:black;
+            text-align:center;
+            margin-top:-20px;
+            font-size:20px;
+        }
+        .dropdown-content{
+            display:none;
+        }
+        .conversion{
+            display:flex;
+            flex-direction:row;
+            margin-top:20px;
+        }
+        .options{
+            margin-top:-50px;
+        }
+        #dropdown-btn{
+            margin-left:-10px;
+            font-size:18px;
+        }
+        .dropdown1 a, .dropdown2 a{
+            text-decoration: none;
+            color:black;
+            display:flex;
+            flex-direction:column;
+            /* font-size:10px; */
+        }
+    </style>
+</head>
+<body>
+<div class="main_container">
+
+    <div class="container">
+        <div class="flex1">
+            <h2>Temperature Convertor</h2>
+        </div>
+
+        <div class="amount">
+            <h3>AMOUNT</h3>
+            <div class="input">
+                <input type="text" placeholder="Enter the amount in degree" id="input_bar" oninput="InputValue()">
+            </div>
+        </div>
+
+        <div class="conversion">
+            <div class="from">
+                <div class="from_container">
+                    <p style="margin-left:5px; color:rgb(167, 110, 3);font-size: 11px;">From</p>
+                    <div class="btn1" onclick="toggleDropdown('dropdown1')" style="margin-left:13px; padding-left:7px; padding-top:5px; color:rgb(167, 110, 3);" >▼<p></p></div>
+                </div>
+                <div class="dropdown1">
+                    <a href="#" onclick="selectedOption('Celsius(°C)')">Celsius(°C)</a>
+                    <a href="#" onclick="selectedOption('Kelvin(°K)')">Kelvin(°K)</a>
+                    <a href="#" onclick="selectedOption('Fahrenheit(°F)')">Fahrenheit(°F)</a>
+                </div>
+            </div>
+            <div class="To">
+                <div class="to_container">
+                    <p style="margin-left:5px;color:rgb(167, 110, 3);font-size: 11px;">To</p>
+                    <div class="btn2" onclick="toggleDropdown('dropdown2')" style="margin-left:20px; padding-left:7px; padding-top:5px; color:rgb(167, 110, 3);">▼<p></p></div>
+                </div>
+                <div class="dropdown2">
+                    <a href="#" onclick="selectedOption('Celsius(°C)')">Celsius(°C)</a>
+                    <a href="#" onclick="selectedOption('Kelvin(°K)')">Kelvin(°K)</a>
+                    <a href="#" onclick="selectedOption('Fahrenheit(°F)')">Fahrenheit(°F)</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <div class="convert_btn">
+                <p onclick="convert_button()">Convert</p>
+            </div>
+        </div>
+
+        <div class="Answer">
+            <p>Answer</p>
+            <div class="output"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let b = 0;
+    let c = 0;
+
+    function InputValue() {
+        let a = document.getElementById('input_bar');
+        b = a.value;
+    }
+
+    function selectedOption(unit) {
+        updateButtonText(unit);
+        hideAllDropdowns();
+    }
+
+    function toggleDropdown(dropdownClass) {
+        hideAllDropdowns();
+        document.querySelector('.' + dropdownClass).classList.add('active');
+    }
+
+    function hideAllDropdowns() {
+        document.querySelectorAll('.dropdown1, .dropdown2').forEach(function (dropdown) {
+            dropdown.classList.remove('active');
+        });
+    }
+
+    function updateButtonText(unit) {
+        let activeDropdown = document.querySelector('.dropdown1.active, .dropdown2.active');
+        
+        if (activeDropdown) {
+            
+            let buttonText=activeDropdown.previousElementSibling.querySelector('p');
+            buttonText.innerText = unit;
+            buttonText.style.fontsize='8px';
+        }
+    }
+
+    function FromToOther(from_Unit, To_Unit) {
+        let integer = parseFloat(b);
+        let c=NaN;
+        if (from_Unit === 'Celsius(°C)') {
+            switch (To_Unit) {
+                case 'Celsius(°C)':
+                    c = integer;
+                    break;
+                case 'Kelvin(°K)':
+                    c = integer + 273.15;
+                    break;
+                case 'Fahrenheit(°F)':
+                    c = (integer * 9 / 5) + 32;
+                    break;
+            }
+        }
+        else if (from_Unit==='Kelvin(°K)')
+        {
+            switch (To_Unit) {
+                case 'Celsius(°C)':
+                    c = integer-273.15;
+                    break;
+                case 'Kelvin(°K)':
+                    c = integer;
+                    break;
+                case 'Fahrenheit(°F)':
+                    c = 9/5 * (integer-273.15)* 9/5+32;
+                    break;
+            }
+        }
+        else if (from_Unit==='Fahrenheit(°F)')
+        {
+            switch (To_Unit) {
+                case 'Celsius(°C)':
+                    c = (integer-32)*(5/9);
+                    break;
+                case 'Kelvin(°K)':
+                    c = (integer-32)*(5/9)+ 273.15;
+                    break;
+                case 'Fahrenheit(°F)':
+                    c = integer;
+                    break;
+            }
+        }
+        
+        return c;
+    }
+
+    function convert_button() {
+        if (isNaN(b)) {
+            alert('Please enter the value');
+            return;
+        }
+
+        let from_Unit = document.querySelector('.from_container p').innerText;
+        let To_Unit = document.querySelector('.to_container p').innerText;
+        // console.log(from_Unit);
+        // console.log(To_Unit);
+        var e=FromToOther(from_Unit, To_Unit);
+
+        var d = document.querySelector('.output');
+        d.innerHTML = 'Output is : ' + e;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .screen{
+            display:flex;
+            flex-direction: column;
+            height:100vh;
+            width:100vw;
+            background-color: rgb(2, 2, 43);
+        }
+        .container{
+            display:flex;
+            flex-direction:row;
+            justify-content: space-between;
+            align-items: center;
+            gap:14rem;
+            width:100vw;
+            height:4rem;
+            background-color: rgb(2, 2, 102);
+        }
+        .left{
+            margin-left: 7rem;
+        }
+        .left p{
+            color:azure;
+            letter-spacing: 1px;
+            word-spacing: 4px;
+            font-size: 2rem;
+        }
+        .right{
+            display:flex;
+            margin-right: 60px;
+            gap:4rem;
+        }
+        .right a{
+            color:beige;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .photo{
+            width:35vw;
+            height:400px;
+            border:2px solid red;
+            position: absolute;
+            right:35px;
+        }
+        .objective{
+            width:40vw;
+            height:400px;
+            position:absolute;
+            left:0px;
+            color: white;
+            text-align: justify;
+        }
+        .objective h2{
+            color:brown;
+            font-size:50px;
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+        }
+        .objective p{
+            margin-left: 40px;
+            text-align: justify;
+            margin-top: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size:20px;
+        }
+        .bottom{
+            width:100vw;
+            height:2rem;
+            background-color: #0093E9;
+            background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+            color:white;
+            text-align: center;
+            padding-top: 3px;
+        }
+        .photo img{
+            width:40rem;
+        }
+        .skills{
+            background-color: rgb(2, 2, 43); 
+            color:brown;
+        }
+        .skills p{
+            margin-left:4rem;
+            font-size: 40px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="heading">
+            <div class="container">
+                <div class="left">
+                    <p>Chetan Dabbe Portfolio</p>
+                </div>
+                <div class="right">
+                    <a href="#" id="home">Home</a>
+                    <a href="Chetan_Resume.pdf" download="Chetan_Resume.pdf">Resume</a>
+                    <a href="https://drive.google.com/drive/folders/1QA3Km6IxAjK2zovwG3mr5fVuN8UiHu-6?usp=drive_link">Project</a>
+                    <a href="#">Contact Me</a>
+                </div>  
+            </div>
+            <div class="objective">
+                <h2>Career Objective</h2>
+                <p>To launch my career in the Web Development field where I can apply my academic background, passion for technology, and dedication to solving complex problems. To seek an entry-level position that fosters professional growth and allows me to contribute my skills in <b>HTML, CSS, Javascript, Data Structures and Algorithms</b>. With a solid foundation in computer engineering principles and a commitment to staying current with industry trends, I am excited to collaborate with a dynamic team, learn from experienced professionals, and make meaningful contributions to innovative projects. Ready to bring a fresh perspective, strong work ethic, and a hunger for learning to a forward-thinking organization.</p>
+            </div>
+            <div class="photo">
+                <!-- <img src="./photo1.png" alt="Photo"> -->
+            </div>
+        </div>
+    </div>
+    <div class="skills">
+        <p><b>Skills</b></p>
+    </div> 
+    <footer class="bottom">
+        &#64;Copyright &nbsp;by &nbsp;Chetan &nbsp;Ins, &nbsp;Bhusawal 425201.
+    </footer>
+
+    <script>
+        d=document.querySelector('#home');
+        d.addEventListener('click',function(){
+            location.reload();
+        });
+    </script>
+</body>
+</html>

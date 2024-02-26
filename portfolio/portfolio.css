@@ -1,0 +1,120 @@
+body{
+    background-color:rgb(31, 31, 36);
+    height:100vh;
+    width:100vw;
+    margin:0;
+    padding:0;
+}
+
+.navbar{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    height:3.5rem;
+    background-color: rgb(10, 10, 40);
+    position:fixed;
+}
+
+.options {
+    position: fixed;
+    top: 16px; /* You can adjust this value based on your design */
+    right: 0;
+}
+
+.options a {
+    margin-left: 20px; /* Add some space between the links */
+    margin-right: 15px;
+    text-decoration: none;
+    color: white;
+    font-size:1.4rem;
+}
+
+.name_photo{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    gap:30px;
+    padding-left:7rem;
+
+}
+
+.name{
+    width:500px;
+    height:300px;
+    color:rgba(255, 255, 255, 0.819);
+    margin-left:50px;
+    margin-top:95px;
+
+}
+
+.photo{
+    width:500px;
+    height:300px;
+}
+
+.photo img{
+    margin-top:4rem; 
+    height:15rem;
+    float:right;
+    /* border-radius: 10px solid red; */
+}
+
+.about{
+    display:flex;
+    flex-direction:column;
+    width:100vw;
+    height:29rem;
+    border:2px solid yellow;
+    justify-content:center;
+}
+
+.box{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    height:25rem;
+    border:2px solid green;
+    justify-content: center;
+    gap:30px;
+}
+
+.box1,.box2 {
+    width:25rem;
+    height:20rem;
+    border:2px solid red;
+    /* margin-right:4rem; */
+    margin-top:2rem;
+}
+
+.Project{
+    display:flex;
+    flex-direction:column;
+    width:100vw;
+    height:29rem;
+    border:2px solid yellow;
+    justify-content:center;
+    margin-top:10rem;
+}
+
+.project_list{
+    display:flex;
+    flex-direction:row;
+    width:100vw;
+    height:25rem;
+    border:2px solid green;
+    justify-content: center;
+}
+
+.project1,.project2,.project3 {
+    width:25rem;
+    height:20rem;
+    border:2px solid red;
+    margin-right:4rem;
+    margin-top:2rem;
+}
+
+.contact{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
